@@ -13,7 +13,7 @@ from systematics import theory_systematics, experimental_systematics, signal_sha
 
 def get_options():
   parser = OptionParser()
-  parser.add_option('--ext', dest='ext', default='', help="Extension (used when running RunYields.py)")
+  parser.add_option('--ext', dest='ext', default='test', help="Extension (used when running RunYields.py)")
   parser.add_option('--years', dest='years', default='2016,2017,2018', help="Comma separated list of years in makeYields output")
   # For pruning processes
   parser.add_option('--prune', dest='prune', default=False, action="store_true", help="Prune proc x cat which make up less than pruneThreshold (default 0.1%) of given total category")
@@ -48,6 +48,7 @@ extStr = "_%s"%opt.ext if opt.ext != '' else ''
 pkl_files = glob.glob("./yields%s/*.pkl"%extStr)
 pkl_files.sort() # Categories in alphabetical order
 data = pd.DataFrame()
+print("===== data is : %s"%data)
 for f_pkl_name in pkl_files:
   with open(f_pkl_name,"rb") as f_pkl: 
     df = pickle.load(f_pkl)
