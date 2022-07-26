@@ -69,7 +69,7 @@ ROOT.gROOT.SetBatch(True)
 
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # SETUP: signal fit
-print " --> Running fit for (proc,cat) = (%s,%s)"%(opt.proc,opt.cat)
+print " --> Running fit for (proc,,,,,cat) = (%s,,,,,%s)"%(opt.proc,opt.cat)
 if( len(opt.massPoints.split(",")) == 1 )&( opt.MHPolyOrder > 0 ):
   print " --> [WARNING] Attempting to fit polynomials of O(MH^%g) for single mass point. Setting order to 0"%opt.MHPolyOrder
   opt.MHPolyOrder=0
@@ -154,6 +154,12 @@ for mp in opt.massPoints.split(","):
   WSFileName = glob.glob("%s/output*M%s*%s.root"%(opt.inputWSDir,mp,procRVFit))[0]
   f = ROOT.TFile(WSFileName,"read")
   inputWS = f.Get(inputWSName__)
+  #print( "input WS is inputWS.data(%s_____%s_____%s_____%s)"%(procToData(procRVFit.split("_")[0]),mp,sqrts__,catRVFit) )
+  #print( "inputWS is %s"%inputWS.data("%s_%s_%s_%s"%(procToData(procRVFit.split("_")[0]),mp,sqrts__,catRVFit)))
+  #inputWS.data("%s_%s_%s_%s"%(procToData(procRVFit.split("_")[0]),mp,sqrts__,catRVFit)).Print()
+  #print( "aset is 1 %s"%aset )
+  #aset.Print("v") 
+  #print( "aset is 2 %s"%aset )
   d = reduceDataset(inputWS.data("%s_%s_%s_%s"%(procToData(procRVFit.split("_")[0]),mp,sqrts__,catRVFit)),aset)
   nominalDatasets[mp] = d.Clone()
   if opt.skipVertexScenarioSplit: datasetRVForFit[mp] = d
@@ -215,9 +221,11 @@ if not opt.skipVertexScenarioSplit:
 
   # Check nominal mass dataset
   if( datasetWVForFit[MHNominal].numEntries() < opt.replacementThreshold  )|( datasetWVForFit[MHNominal].sumEntries() < 0. ):
+    print( "===== %f, %f, %f"%(datasetWVForFit[MHNominal].numEntries(),opt.replacementThreshold,datasetWVForFit[MHNominal].sumEntries()) )
     nominal_numEntries = datasetWVForFit[MHNominal].numEntries()
     procReplacementFit, catReplacementFit = rMap['procWV'], rMap['catWV']
     for mp in opt.massPoints.split(","):
+      print( "===== %s/output*M%s*%s.root"%(opt.inputWSDir,mp,procReplacementFit) )
       WSFileName = glob.glob("%s/output*M%s*%s.root"%(opt.inputWSDir,mp,procReplacementFit))[0]
       f = ROOT.TFile(WSFileName,"read")
       inputWS = f.Get(inputWSName__)
