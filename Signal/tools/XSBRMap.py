@@ -143,3 +143,5 @@ globalXSBRMap['STXS']['THQ_FWDH'] = {'mode':'tHq','factor':0.0279}
 globalXSBRMap['STXS']['THQ'] = {'mode':'tHq','factor':0.9721}
 globalXSBRMap['STXS']['THW_FWDH'] = {'mode':'tHW','factor':0.0106}
 globalXSBRMap['STXS']['THW'] = {'mode':'tHW','factor':0.9894}
+# add merged ggh
+globalXSBRMap['STXS']['GG2H'] = {'mode':'ggH','factor':1.0}
