@@ -83,7 +83,7 @@ else:
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # UPROOT file
 f = uproot.open(opt.inputTreeFile)
-if inputTreeDir == '': listOfTreeNames == f.keys()
+if inputTreeDir == '': listOfTreeNames = f.keys()
 else: listOfTreeNames = f[inputTreeDir].keys()
 # If cats = 'auto' then determine from list of trees
 if cats == 'auto':
@@ -123,6 +123,8 @@ for cat in cats:
   else: treeName = "%s/Data_%s_%s"%(inputTreeDir,sqrts__,cat)
   print "    * tree: %s"%treeName
   t = f.Get(treeName)
+
+  print("===== t is %s"%t)
 
   # Define dataset for cat
   dname = "Data_%s_%s"%(sqrts__,cat)  
