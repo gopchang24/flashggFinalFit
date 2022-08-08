@@ -195,6 +195,8 @@ for i in range(d_obs.numEntries()):
 
 # if opt.doBands: make dataframe storing toy yields in each bin
 if opt.doBands:
+  print("opt.doBands")
+  print("SplusBModels%s"%opt.ext)
   if opt.loadToyYields != '':
     print " --> Loading toy yields for +-1/2sigma bands from %s"%opt.loadToyYields
     with open(opt.loadToyYields,"rb") as fD: df_bands = pickle.load(fD)
@@ -267,7 +269,9 @@ if opt.doBands:
         with open("SplusBModels%s/toyYields_%s.pkl"%(opt.ext,opt.xvar.split(",")[0]),"w") as fD: pickle.dump(df_bands,fD)
 
 # Process each category separately
+print("cats is %s"%cats)
 for cidx in range(len(cats)):
+  print("cidx is %s"%cidx)
   c = cats[cidx]
   d = data_cats[c]
   wd = wdata_cats[c]
@@ -443,6 +447,7 @@ for cidx in range(len(cats)):
 
 # Finished processing individual categories: if all then plot all
 if( len(opt.cats.split(",")) > 1 )|( opt.cats == 'all' ):
+  print("Finished processing individual categories: if all then plot all")
   if opt.doHHMjjFix: _reduceRange = [xvarfix.getMin(),xvarfix.getMax()]
   else: _reduceRange = None
   if opt.doSumCategories:
@@ -454,3 +459,5 @@ if( len(opt.cats.split(",")) > 1 )|( opt.cats == 'all' ):
       print " --> Making weighted plot for sum of categories"
       if opt.doBands: makeSplusBPlot(w,h_wdata_sum,h_wsbpdf_sum,h_wbpdf_sum,h_wspdf_sum,h_wdata_ratio_sum,h_wbpdf_ratio_sum,h_wspdf_ratio_sum,'wall',opt, df_bands, _reduceRange)
       else: makeSplusBPlot(w,h_wdata_sum,h_wsbpdf_sum,h_wbpdf_sum,h_wspdf_sum,h_wdata_ratio_sum,h_wbpdf_ratio_sum,h_wspdf_ratio_sum,'wall',opt, None, _reduceRange)
+
+print("end of makSplusBModelPlot.py")

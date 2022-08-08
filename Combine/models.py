@@ -16,6 +16,23 @@ models = {
 --PO \"map=.*/tHq.*:r_top[1,0,3]\" \
 --PO \"map=.*/tHW.*:r_top[1,0,3]\"",
 
+  "ac":"-P HiggsAnalysis.CombinedLimit.PhysicsModel:multiSignalModel \
+--PO \"map=.*/ggH.*:r_ggH[1,0,2]\" \
+--PO \"map=.*/ggH.*:D_PS_ggH[0.5,0,1]\" \
+--PO \"map=.*/ggH.*:D_PS_VBF[0.5,0,1]\" \
+--PO \"map=.*/bbH.*:r_ggH[1,0,2]\" \
+--PO \"map=.*/qqH.*:r_VBF[1,0,3]\" \
+--PO \"map=.*/WH_had.*:r_VH[1,0,3]\" \
+--PO \"map=.*/ZH_had.*:r_VH[1,0,3]\" \
+--PO \"map=.*/ggZH_had.*:r_VH[1,0,3]\" \
+--PO \"map=.*/WH_lep.*:r_VH[1,0,3]\" \
+--PO \"map=.*/ZH_lep.*:r_VH[1,0,3]\" \
+--PO \"map=.*/ggZH_ll.*:r_VH[1,0,3]\" \
+--PO \"map=.*/ggZH_nunu.*:r_VH[1,0,3]\" \
+--PO \"map=.*/ttH.*:r_top[1,0,3]\" \
+--PO \"map=.*/tHq.*:r_top[1,0,3]\" \
+--PO \"map=.*/tHW.*:r_top[1,0,3]\"",
+
   "stage0":"-P HiggsAnalysis.CombinedLimit.PhysicsModel:multiSignalModel \
 --PO \"map=.*/ggH.*:r_ggH[1,0,2]\" \
 --PO \"map=.*/bbH.*:r_ggH[1,0,2]\" \

@@ -11,5 +11,13 @@
         "fits":"profile1D:syst:all",
         "points":"20:1",
         "fit_opts":"--saveSpecifiedNuis all --saveInactivePOI 1 --cminApproxPreFitTolerance=10"
+    },
+
+    "ac":{
+        "pois":"r_ggH,r_VBF,r_VH,r_top,D_PS_ggH,D_PS_VBF",
+        "fits":"profile1D:syst:all",
+        "points":"20:1",
+        "fit_opts":"--saveSpecifiedNuis all --saveInactivePOI 1 --cminApproxPreFitTolerance=10"
     }
+
 }

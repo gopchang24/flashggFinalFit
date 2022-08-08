@@ -1,5 +1,5 @@
-#python RunText2Workspace.py --mode mu --batch condor --queue workday #--dryRun
-#python RunFits.py --inputJson inputs.json --mode mu --batch condor --queue workday #--dryRun
-python CollectFits.py --inputJson inputs.json --mode mu #(--ext {EXT}) (--doObserved)
+#python RunText2Workspace.py --mode ac --batch local --queue workday #--dryRun
+#python RunFits.py --inputJson inputs.json --mode ac --batch condor --queue workday #--dryRun
+python CollectFits.py --inputJson inputs.json --mode ac #(--ext {EXT}) (--doObserved)
 
 
