@@ -324,6 +324,12 @@ for cidx in range(len(cats)):
   # Calculate yields
   SB, B = sbpdf.expectedEvents(_xvar_argset), bpdf.expectedEvents(_xvar_argset)
   S = SB-B
+
+  # zero background correction
+  #if B == 0 :
+    #B = 1.0
+    #S = SB-B
+
   # If option doBkfRenormalization: renormalize B pdf to be S+B-S
   if opt.doBkgRenormalization:
     print "    * fixing B normalization"

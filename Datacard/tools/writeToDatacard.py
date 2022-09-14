@@ -24,6 +24,7 @@ def writeProcesses(f,d,options):
   for cat in d.cat.unique():
     # Loop over rows for respective category
     for ir,r in d[d['cat']==cat].iterrows():
+      if r['proc'] == "bkg_mass": continue
       # Write to datacard
       f.write("shapes      %-55s %-40s %s %s\n"%(r['proc'],r['cat'],r['modelWSFile'],r['model']))
 
@@ -43,6 +44,7 @@ def writeProcesses(f,d,options):
     # Loop over rows for respective category
     for ir,r in d[d['cat']==cat].iterrows():
       if r['proc'] == "data_obs": continue
+      if r['proc'] == "bkg_mass": continue
       lbin_procXcat += "%-55s "%cat
       lproc += "%-55s "%r['proc']
       if r['proc'] == "bkg_mass": lprocid += "%-55s "%"1"
@@ -225,10 +227,10 @@ def writeMCStatUncertainty(f,d,options):
 
 
 def writePdfIndex(f,d,options):
-  f.write("\n")
-  for cat in d[~d['cat'].str.contains("NOTAG")].cat.unique(): 
-    indexStr = "pdfindex_%s_13TeV"%cat
-    f.write("%-55s  discrete\n"%indexStr)
+  #f.write("\n")
+  #for cat in d[~d['cat'].str.contains("NOTAG")].cat.unique(): 
+  #  indexStr = "pdfindex_%s_13TeV"%cat
+  #  f.write("%-55s  discrete\n"%indexStr)
   return True
 
 def writeBreak(f):
