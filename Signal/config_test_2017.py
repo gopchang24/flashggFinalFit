@@ -7,7 +7,8 @@ signalScriptCfg = {
   # Setup
   #'inputWSDir':'/vols/cms/jl2117/hgg/ws/UL/Sept20/MC_final/signal_%s'%_year,
   #'inputWSDir':'/eos/user/m/mukherje/Hgg_AC/FLASHGG_FINAL_FIT/MC_SIGNALS/ws_GG2H',
-  'inputWSDir':'/afs/cern.ch/user/c/chjoo/eos_workspace/higgs_ac_ggh_hgg/finalfit/data_finalfit/220804_htot_rename/mc/ws_GG2H',
+  #'inputWSDir':'/afs/cern.ch/user/c/chjoo/eos_workspace/higgs_ac_ggh_hgg/finalfit/data_finalfit/220804_htot_rename/mc/ws_GG2H',
+  'inputWSDir':'',
   'procs':'auto', # if auto: inferred automatically from filenames
   'cats':'auto', # if auto: inferred automatically from (0) workspace
   'ext':'dcb_%s'%_year,
